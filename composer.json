@@ -1,0 +1,10 @@
+{
+    "name": "wplab/wp-theme",
+    "description": "Educational WordPress theme",
+    "type": "wordpress-theme",
+    "autoload": {
+        "psr-4": {
+            "WpLab\\Theme\\": "inc/"
+        }
+    }
+}
