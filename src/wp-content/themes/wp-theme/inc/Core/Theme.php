@@ -3,6 +3,7 @@
 namespace WpLab\Theme\Core;
 use WpLab\Theme\Frontend\Navigation;
 use WpLab\Theme\Frontend\Sidebar;
+use WpLab\Theme\Frontend\Shortcodes;
 
 class Theme
 {
@@ -10,7 +11,8 @@ class Theme
         private Assets $assets,
         private Setup $setup,
         private Navigation $navigation, 
-        private Sidebar $sidebar
+        private Sidebar $sidebar, 
+        private Shortcodes $shortcodes
     ) {}
     
     public function run(): void
@@ -19,6 +21,7 @@ class Theme
         $this->setup->register();
         $this->navigation->register();
         $this->sidebar->register();
+        $this->shortcodes->register();
     }
 
 }
