@@ -18,7 +18,9 @@ services:
       start_period: 30s
 
   wordpress:
-    image: wordpress:php8.3-apache
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
     restart: unless-stopped
     depends_on:
       db:
