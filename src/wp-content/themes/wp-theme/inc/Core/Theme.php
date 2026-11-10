@@ -9,11 +9,7 @@ class Theme
         add_action('after_setup_theme', [$this, 'setup']);
 
         (new Assets())->register();
+        (new Setup())->register();
     }
 
-    public function setup(): void
-    {
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-    }
 }
