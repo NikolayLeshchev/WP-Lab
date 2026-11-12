@@ -36,6 +36,15 @@ services:
       - wordpress_data:/var/www/html
       - ./src/wp-content/themes/wp-theme:/var/www/html/wp-content/themes/wp-theme
 
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data  
+
 volumes:
   db_data:
   wordpress_data:
+  redis_data:
