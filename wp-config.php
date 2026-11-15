@@ -131,6 +131,8 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 define('WP_REDIS_HOST', 'redis');
 define('WP_REDIS_PORT', 6379);
 
+define('WP_ENVIRONMENT_TYPE', 'local');
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

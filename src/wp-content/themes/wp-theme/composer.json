@@ -6,5 +6,8 @@
         "psr-4": {
             "WpLab\\Theme\\": "inc/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
     }
 }
