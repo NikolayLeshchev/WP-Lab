@@ -1,0 +1,21 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install dependencies
+        run: composer install --working-dir=src/wp-content/themes/wp-theme
+
+      - name: Run tests
+        run: ./src/wp-content/themes/wp-theme/vendor/bin/phpunit --configuration src/wp-content/themes/wp-theme/phpunit.xml

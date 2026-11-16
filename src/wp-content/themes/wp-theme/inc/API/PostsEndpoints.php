@@ -41,6 +41,18 @@ class PostsEndpoints {
                 ]
             ],
         ]);
+
+        register_rest_route('plugin/v1', '/posts-by-status', [
+            'methods'             => 'GET',
+            'callback'            => [$this, 'get_posts_by_status'],
+            'permission_callback' => '__return_true',
+            'args'                => [
+                'status' =>  [
+                    'default' => 'publish', 
+                    'sanitize_callback' => 'sanitize_text_field'
+                ]
+            ],
+        ]);
     }
 
     public function get_posts_count(WP_REST_Request $request): array {
@@ -74,5 +86,11 @@ class PostsEndpoints {
                 'content' => $post->post_content
             ];
         }, $posts);
+    }
+
+    public function get_posts_by_status(WP_REST_Request $request): array {
+        $status = $request->get_param('status');
+        $count  = wp_count_posts()->$status ?? 0;
+        return ['count' => (int) $count];
     }
 }

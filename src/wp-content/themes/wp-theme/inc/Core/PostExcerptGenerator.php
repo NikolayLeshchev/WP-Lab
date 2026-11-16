@@ -17,4 +17,7 @@ class PostExcerptGenerator {
 
         return $excerpt . '...';
     }
+    public function hasExcerpt(string $content, int $length = 100): bool {
+        return strlen($content) > $length;
+    }
 }
