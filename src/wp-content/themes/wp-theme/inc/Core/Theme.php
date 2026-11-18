@@ -5,6 +5,7 @@ use WpLab\Theme\Frontend\Navigation;
 use WpLab\Theme\Frontend\Sidebar;
 use WpLab\Theme\Frontend\Shortcodes;
 use WpLab\Theme\API\PostsEndpoints;
+use WpLab\Theme\API\Api;
 
 class Theme
 {
@@ -14,7 +15,8 @@ class Theme
         private Navigation $navigation, 
         private Sidebar $sidebar, 
         private Shortcodes $shortcodes,
-        private PostsEndpoints $postsEndpoints
+        private PostsEndpoints $postsEndpoints,
+        private Api $api
     ) {}
     
     public function run(): void
@@ -25,6 +27,7 @@ class Theme
         $this->sidebar->register();
         $this->shortcodes->register();
         $this->postsEndpoints->register();
+        $this->api->register();
     }
 
 }

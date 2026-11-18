@@ -11,6 +11,7 @@ $theme = new \WpLab\Theme\Core\Theme(
     new \WpLab\Theme\Frontend\Navigation(),
     new \WpLab\Theme\Frontend\Sidebar(),
     new \WpLab\Theme\Frontend\Shortcodes(),
-    new \WpLab\Theme\API\PostsEndpoints()
+    new \WpLab\Theme\API\PostsEndpoints(),
+    new \WpLab\Theme\API\Api()
 );
 $theme->run();

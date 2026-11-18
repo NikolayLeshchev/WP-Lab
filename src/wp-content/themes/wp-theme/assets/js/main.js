@@ -80,3 +80,71 @@ async function searchAndShowPosts(searchTerm) {
 }
 
 //searchAndShowPosts('now');
+
+
+async function showPostsCount() {
+  try {
+    const response = await fetch('/wp-json/wp-theme/v1/posts-count', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-WP-Nonce': wpApiSettings.nonce
+      },
+      credentials: 'same-origin'
+      });
+    const result = await response.json();
+    console.log('Опубликованных постов: ' + result.count);
+
+  } catch (error) {
+    console.log(error);
+  }
+} 
+
+showPostsCount()
+
+
+async function updatePostTitle(postId, newTitle) {
+  try {
+    const response = await fetch(`/wp-json/wp/v2/posts/${postId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-WP-Nonce': wpApiSettings.nonce
+      },
+      body: JSON.stringify({
+        title: newTitle
+      }),
+      credentials: 'same-origin'
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+//updatePostTitle(6, 'Updated Title 6');
+
+
+async function deletePost(postId) {
+  try {
+    const response = await fetch(`/wp-json/wp/v2/posts/${postId}?force=true`, {
+      method : 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-WP-Nonce': wpApiSettings.nonce
+      },
+      credentials : 'same-origin'
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+//deletePost(1);
