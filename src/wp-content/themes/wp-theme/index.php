@@ -26,7 +26,10 @@ function get5PostsIDs(): array{
 $result = get5PostsIDs();
 var_dump($result);
 $end = microtime(true);
-echo 'Time: ' . ($end - $start) . ' sec';
+echo 'Time: ' . ($end - $start) . ' sec';?>
+
+<div id="posts-list"></div>
 
 
+<?php
 get_footer();
