@@ -4,6 +4,7 @@ namespace WpLab\Theme\Core;
 use WpLab\Theme\Frontend\Navigation;
 use WpLab\Theme\Frontend\Sidebar;
 use WpLab\Theme\Frontend\Shortcodes;
+use WpLab\Theme\Frontend\Weather;
 use WpLab\Theme\API\PostsEndpoints;
 use WpLab\Theme\API\Api;
 
@@ -15,6 +16,7 @@ class Theme
         private Navigation $navigation, 
         private Sidebar $sidebar, 
         private Shortcodes $shortcodes,
+        private Weather $weather,
         private PostsEndpoints $postsEndpoints,
         private Api $api
     ) {}
@@ -26,6 +28,7 @@ class Theme
         $this->navigation->register();
         $this->sidebar->register();
         $this->shortcodes->register();
+        $this->weather->register();
         $this->postsEndpoints->register();
         $this->api->register();
     }
